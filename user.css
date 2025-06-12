@@ -1,0 +1,329 @@
+/* ========== Global Resets ========== */
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ========== Header Section ========== */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+header h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+header:hover {
+  transform: scale(1.02);
+}
+
+.icon-inline {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+}
+
+/* ========== Controls ========== */
+.top-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Input & Button Styling */
+#search,
+#change-theme {
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#search:focus,
+#change-theme:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Input Icon Wrapper */
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: inherit;
+  pointer-events: none;
+  z-index: 2;
+}
+
+#search {
+  padding-left: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== Container Section ========== */
+.container {
+  width: 95%;
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: 16px;
+  overflow-x: auto;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+}
+
+/* ========== Table Styling ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+tbody tr {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+tbody tr:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== Theme Transitions ========== */
+body[class$='-theme'] #search:focus,
+body[class$='-theme'] #change-theme:hover {
+  transform: scale(1.05);
+}
+
+/* ========== THEME DEFINITIONS ========== */
+
+/* --- Default Theme (Gold on Black) --- */
+body.default-theme {
+  background-color: #000;
+  color: #FFD700;
+}
+
+body.default-theme header h1,
+body.default-theme #search,
+body.default-theme #change-theme {
+  color: #FFD700;
+}
+
+body.default-theme .container {
+  background: #111;
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 20px #FFD70055;
+}
+
+body.default-theme #search,
+body.default-theme #change-theme {
+  background-color: #111;
+  border: 1px solid #FFD700;
+}
+
+body.default-theme #search:focus,
+body.default-theme #change-theme:hover {
+  background-color: #1a1a1a;
+  box-shadow: 0 0 8px #FFD70088;
+}
+
+body.default-theme thead {
+  background-color: #FFD700;
+  color: #000;
+}
+
+body.default-theme tbody tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
+
+/* --- Light Theme --- */
+body.light-theme {
+  background-color: #f5f5f5;
+  color: #111;
+}
+
+body.light-theme .container {
+  background: #fff;
+  border: 2px solid #ccc;
+  box-shadow: 0 0 20px #ccc;
+}
+
+body.light-theme #search,
+body.light-theme #change-theme {
+  background-color: #fff;
+  color: #111;
+  border: 1px solid #ccc;
+}
+
+body.light-theme #search:focus,
+body.light-theme #change-theme:hover {
+  background-color: #eee;
+  box-shadow: 0 0 8px #ccc;
+}
+
+body.light-theme thead {
+  background-color: #ccc;
+  color: #111;
+}
+
+body.light-theme tbody tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+/* --- Blue Theme --- */
+body.blue-theme {
+  background-color: #0f172a;
+  color: #60a5fa;
+}
+
+body.blue-theme .container {
+  background: #1e293b;
+  border: 2px solid #60a5fa;
+  box-shadow: 0 0 20px #60a5fa55;
+}
+
+body.blue-theme #search,
+body.blue-theme #change-theme {
+  background-color: #1e293b;
+  color: #60a5fa;
+  border: 1px solid #60a5fa;
+}
+
+body.blue-theme #search:focus,
+body.blue-theme #change-theme:hover {
+  background-color: #273449;
+  box-shadow: 0 0 8px #60a5fa;
+}
+
+body.blue-theme thead {
+  background-color: #60a5fa;
+  color: #0f172a;
+}
+
+body.blue-theme tbody tr:nth-child(even) {
+  background-color: #1a2333;
+}
+
+/* --- Green Theme --- */
+body.green-theme {
+  background-color: #0a2910;
+  color: #34d399;
+}
+
+body.green-theme .container {
+  background: #112a16;
+  border: 2px solid #34d399;
+  box-shadow: 0 0 20px #34d39955;
+}
+
+body.green-theme #search,
+body.green-theme #change-theme {
+  background-color: #1c3b23;
+  color: #34d399;
+  border: 1px solid #34d399;
+}
+
+body.green-theme #search:focus,
+body.green-theme #change-theme:hover {
+  background-color: #26583b;
+  box-shadow: 0 0 8px #34d399;
+}
+
+body.green-theme thead {
+  background-color: #34d399;
+  color: #0a2910;
+}
+
+body.green-theme tbody tr:nth-child(even) {
+  background-color: #10291a;
+}
+
+/* --- Pink Theme --- */
+body.pink-theme {
+  background-color: #2f0f1f;
+  color: #f472b6;
+}
+
+body.pink-theme .container {
+  background: #3f1a2a;
+  border: 2px solid #f472b6;
+  box-shadow: 0 0 20px #f472b655;
+}
+
+body.pink-theme #search,
+body.pink-theme #change-theme {
+  background-color: #4a2d3b;
+  color: #f472b6;
+  border: 1px solid #f472b6;
+}
+
+body.pink-theme #search:focus,
+body.pink-theme #change-theme:hover {
+  background-color: #5c3647;
+  box-shadow: 0 0 8px #f472b6;
+}
+
+body.pink-theme thead {
+  background-color: #f472b6;
+  color: #2f0f1f;
+}
+
+body.pink-theme tbody tr:nth-child(even) {
+  background-color: #422434;
+}
+
+.primary-button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid currentColor;
+  transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.primary-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
